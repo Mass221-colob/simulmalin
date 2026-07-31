@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ArticleMeta } from "@/data/articles";
 import { ARTICLES } from "@/data/articles";
+import { IllustrationArticle, VignetteArticle } from "@/components/IllustrationsBlog";
 
 export default function ArticleLayout({
   meta,
@@ -43,6 +44,8 @@ export default function ArticleLayout({
         {meta.titre}
       </h1>
 
+      <IllustrationArticle categorie={meta.categorie} className="mt-6" />
+
       <article className="article-corps mt-8 space-y-5 leading-relaxed text-encre/90">
         {children}
       </article>
@@ -52,8 +55,11 @@ export default function ArticleLayout({
         <ul className="mt-3 space-y-2 text-sm">
           {autres.map((a) => (
             <li key={a.slug}>
-              <Link href={`/blog/${a.slug}/`} className="text-marine hover:underline">
-                {a.titre}
+              <Link href={`/blog/${a.slug}/`} className="group flex items-center gap-3">
+                <span className="h-12 w-20 shrink-0 overflow-hidden rounded-md border border-ligne">
+                  <VignetteArticle categorie={a.categorie} />
+                </span>
+                <span className="text-marine group-hover:underline">{a.titre}</span>
               </Link>
             </li>
           ))}

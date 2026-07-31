@@ -102,6 +102,15 @@ export const ARTICLES: ArticleMeta[] = [
     categorie: "Emploi",
     lectureMin: 6,
   },
+  {
+    slug: "nouveau-taux-prelevement-source-septembre",
+    titre: "Nouveau taux de prélèvement à la source au 1er septembre : ce qui vous attend",
+    extrait:
+      "Votre taux change automatiquement en septembre, calculé sur vos revenus 2025. Comment le vérifier, quand le moduler, et pourquoi ne pas attendre le solde de décembre.",
+    date: "2026-08-01",
+    categorie: "Impôts",
+    lectureMin: 6,
+  },
 ];
 
 export function articleParSlug(slug: string): ArticleMeta | undefined {

@@ -9,16 +9,11 @@ const mono = { variable: "" };
 export const metadata: Metadata = {
   metadataBase: new URL("https://simulmalin.net"),
   title: {
-    default: "SimulMalin 📁 Calculateurs salaire, impôts et immobilier 2026",
+    default: "SimulMalin — Calculateurs salaire, impôts et immobilier 2026",
     template: "%s | SimulMalin",
   },
   description:
-    "Calculateurs et simulateurs gratuits mis à jour 2026 : salaire brut en net, impôt sur le revenu, fra...",
-  
-  // AJOUTEZ CETTE SECTION :
-  icons: {
-    icon: [{ url: "/favicon.png", type: "image/png" }],
-  },
+    "Calculateurs et simulateurs gratuits mis à jour 2026 : salaire brut en net, impôt sur le revenu, frais de notaire, prêt immobilier. Barèmes officiels, résultat immédiat.",
 };
 
 const NAV = [

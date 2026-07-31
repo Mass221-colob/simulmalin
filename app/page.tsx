@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ARTICLES } from "@/data/articles";
+import { VignetteArticle } from "@/components/IllustrationsBlog";
 import { ANNEE } from "@/data/baremes2026";
 
 const CATEGORIES = [
@@ -83,12 +84,17 @@ export default function Home() {
             <Link
               key={a.slug}
               href={`/blog/${a.slug}/`}
-              className="group rounded-xl border border-ligne bg-white p-5 shadow-fiche transition hover:border-marine"
+              className="group overflow-hidden rounded-xl border border-ligne bg-white shadow-fiche transition hover:border-marine"
             >
-              <p className="etiquette">{a.categorie} · {a.lectureMin} min</p>
-              <h3 className="mt-1 font-display text-base font-bold leading-snug group-hover:text-marine">
-                {a.titre}
-              </h3>
+              <span className="block h-28 border-b border-ligne">
+                <VignetteArticle categorie={a.categorie} />
+              </span>
+              <span className="block p-5">
+                <span className="etiquette">{a.categorie} · {a.lectureMin} min</span>
+                <h3 className="mt-1 font-display text-base font-bold leading-snug group-hover:text-marine">
+                  {a.titre}
+                </h3>
+              </span>
             </Link>
           ))}
         </div>
