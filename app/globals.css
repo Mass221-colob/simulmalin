@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-papier text-encre font-sans antialiased;
+}
+
+/* Signature visuelle : le trait de surligneur fluo sur les chiffres clés,
+   comme un stabilo passé sur une fiche de paie. */
+.surligne {
+  background: linear-gradient(
+    to top,
+    transparent 8%,
+    theme("colors.fluo") 8%,
+    theme("colors.fluo") 62%,
+    transparent 62%
+  );
+  padding: 0 0.15em;
+  border-radius: 2px;
+}
+
+.filet {
+  border-bottom: 1px solid theme("colors.ligne");
+}
+
+/* Champs de formulaire façon case de formulaire administratif */
+.champ {
+  @apply w-full rounded-md border border-ligne bg-white px-3 py-2.5 font-tab text-lg
+    text-encre outline-none transition focus:border-marine focus:ring-2 focus:ring-marine/20;
+}
+
+.etiquette {
+  @apply mb-1.5 block text-[13px] font-semibold uppercase tracking-wide text-griseNote;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
