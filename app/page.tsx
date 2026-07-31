@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ARTICLES } from "@/data/articles";
+import { metasArticles } from "@/lib/articles";
 import { VignetteArticle } from "@/components/IllustrationsBlog";
 import { ANNEE } from "@/data/baremes2026";
 
@@ -80,7 +80,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
-          {[...ARTICLES].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3).map((a) => (
+          {metasArticles().slice(0, 3).map((a) => (
             <Link
               key={a.slug}
               href={`/blog/${a.slug}/`}

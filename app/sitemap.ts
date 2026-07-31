@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { DEPARTEMENTS } from "@/data/departements";
-import { ARTICLES } from "@/data/articles";
+import { metasArticles } from "@/lib/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://simulmalin.net";
@@ -74,7 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     });
   }
-  for (const a of ARTICLES) {
+  for (const a of metasArticles()) {
     programmatiques.push({
       url: `${base}/blog/${a.slug}/`,
       changeFrequency: "monthly",

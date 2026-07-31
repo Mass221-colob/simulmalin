@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ARTICLES } from "@/data/articles";
+import { metasArticles } from "@/lib/articles";
 import { VignetteArticle } from "@/components/IllustrationsBlog";
 
 export const metadata: Metadata = {
@@ -11,8 +11,15 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const tries = [...ARTICLES].sort((a, b) => b.date.localeCompare(a.date));
-  const [une, ...suite] = tries;
+  const articles = metasArticles();
+  if (articles.length === 0) {
+    return (
+      <div className="mx-auto max-w-3xl px-4 py-16 text-center">
+        <h1 className="font-display text-3xl font-extrabold">Le blog arrive bientôt</h1>
+      </div>
+    );
+  }
+  const [une, ...suite] = articles;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
@@ -24,7 +31,6 @@ export default function Page() {
         meilleures décisions avec votre argent.
       </p>
 
-      {/* ---- Article à la une ---- */}
       <Link
         href={`/blog/${une.slug}/`}
         className="group mt-8 block overflow-hidden rounded-xl border border-ligne bg-white shadow-fiche transition hover:border-marine sm:grid sm:grid-cols-2"
@@ -47,7 +53,6 @@ export default function Page() {
         </span>
       </Link>
 
-      {/* ---- Autres articles ---- */}
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {suite.map((a) => (
           <Link
