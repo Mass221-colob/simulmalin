@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   },
   description:
     "Calculateurs et simulateurs gratuits mis à jour 2026 : salaire brut en net, impôt sur le revenu, frais de notaire, prêt immobilier. Barèmes officiels, résultat immédiat.",
+alternates: { canonical: "/" },
 };
 
 const NAV = [
